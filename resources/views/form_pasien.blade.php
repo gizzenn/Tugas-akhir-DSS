@@ -9,7 +9,7 @@
         <div class="card p-4 shadow">
             <h4 class="mb-4 text-center">Input Data Pasien Mandiri</h4>
             @if(session('success')) <div class="alert alert-success">{{ session('success') }}</div> @endif
-            <form action="{{ route('pasien.store') }}" method="POST">
+            <form action="{{ route('pasien.store') }}" method="POST" onsubmit="return confirm('Apakah Anda yakin data yang diisi sudah benar? Data yang sudah dikirim akan langsung masuk ke antrean rumah sakit.');">
                 @csrf
                 <div class="mb-3"><label>Nama Pasien</label><input type="text" name="nama_pasien" class="form-control" required></div>
                 <div class="mb-3"><label>Pendapatan Keluarga (Rp)</label><input type="number" name="pendapatan" class="form-control" required></div>

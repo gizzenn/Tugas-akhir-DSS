@@ -8,7 +8,9 @@ class AdminController extends Controller {
     public function __construct(FuzzyService $fuzzy) { $this->fuzzy = $fuzzy; }
     
     public function index() {
-        $pasiens = Pasien::where('status_bantuan', 'Pending')->get();
+        // Memanggil semua data pasien, diurutkan dari yang terbaru
+        $pasiens = Pasien::query()->orderBy('created_at', 'DESC')->get();
+        
         return view('admin_dashboard', compact('pasiens'));
     }
     public function hitung($id) {

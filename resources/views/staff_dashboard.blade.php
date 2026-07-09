@@ -7,6 +7,13 @@
 <body class="p-5">
     <div class="container">
         <h2>Panel Pemantauan Staf (Perankingan DSS)</h2>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+    <span>Login sebagai: <strong>{{ auth()->user()->name }}</strong></span>
+    <form action="{{ route('logout') }}" method="POST">
+        @csrf
+        <button type="submit" class="btn btn-sm btn-dark">Logout</button>
+    </form>
+    </div>
         <table class="table table-striped mt-4">
             <thead>
                 <tr>
@@ -21,6 +28,8 @@
                     <td>Rp {{ number_format($p->pendapatan) }}</td>
                     <td>Rp {{ number_format($p->biaya_pengobatan) }}</td>
                     <td><strong>{{ $p->skor_prioritas ? round($p->skor_prioritas, 2) : '-' }}</strong></td>
+
+                    <td><strong>{{ $p->skor_prioritas !== null ? round($p->skor_prioritas, 2) : '-' }}</strong></td>
                     <td>
                         @if($p->status_bantuan == 'Diterima') <span class="badge bg-success">Menerima Bantuan</span>
                         @elseif($p->status_bantuan == 'Ditolak') <span class="badge bg-danger">Tidak Menerima</span>
@@ -30,7 +39,6 @@
                 @endforeach
             </tbody>
         </table>
-        <a href="{{ route('pasien.index') }}" class="btn btn-secondary">Kembali ke Form</a>
     </div>
 </body>
 </html>
