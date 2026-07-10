@@ -9,7 +9,7 @@ class Pasien extends Model
 {
     use HasFactory;
 
-    protected $table = 'pasiens';
+    // Pastikan array ini ditutup dengan rapi menggunakan ]; tanpa ada karakter <
     protected $fillable = [
         'nama_pasien',
         'pendapatan',

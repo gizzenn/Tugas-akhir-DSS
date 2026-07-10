@@ -26,7 +26,8 @@ class AuthController extends Controller
             $request->session()->regenerate();
             
             // Redirect ke dashboard masing-masing jika sukses
-            if ($role === 'admin') return redirect()->route('admin.index');
+           // Ganti admin.index menjadi admin.dashboard
+if ($role === 'admin') return redirect()->route('admin.dashboard');
             if ($role === 'staff') return redirect()->route('staff.index');
             return redirect()->route('pasien.index');
         }

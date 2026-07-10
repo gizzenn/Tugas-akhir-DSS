@@ -45,8 +45,9 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 // ======================================================================
 
 // Khusus Akun Admin
+// Ubah alamat menjadi '/admin/dashboard' dan namanya menjadi 'admin.dashboard'
 Route::middleware(['role:admin'])->group(function () {
-    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::post('/admin/hitung/{id}', [AdminController::class, 'hitung'])->name('admin.hitung');
     Route::post('/admin/keputusan/{id}/{status}', [AdminController::class, 'keputusan'])->name('admin.keputusan');
 });
@@ -54,4 +55,13 @@ Route::middleware(['role:admin'])->group(function () {
 // Khusus Akun Staff
 Route::middleware(['role:staff'])->group(function () {
     Route::get('/staff', [StaffController::class, 'index'])->name('staff.index');
+});
+
+Route::middleware(['role:admin'])->group(function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::post('/admin/hitung/{id}', [AdminController::class, 'hitung'])->name('admin.hitung');
+    Route::post('/admin/keputusan/{id}/{status}', [AdminController::class, 'keputusan'])->name('admin.keputusan');
+    
+    // TAMBAHKAN BARIS BARU INI UNTUK PROSES HAPUS DATA
+    Route::delete('/admin/pasien/hapus/{id}', [AdminController::class, 'destroy'])->name('admin.pasien.hapus');
 });
