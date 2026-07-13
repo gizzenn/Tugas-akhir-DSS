@@ -20,9 +20,6 @@
                 <i class="bi bi-speedometer2 text-sky fs-3 me-2"></i>
                 <h4 class="fw-bold text-dark m-0">Dashboard Staf</h4>
             </div>
-            <div class="d-flex align-items-center gap-2">
-                <span class="badge badge-sky px-3 py-2 fs-6 fw-semibold rounded-pill">Menu Verifikasi</span>
-                
                 <form action="{{ route('logout') }}" method="POST" class="m-0">
                     @csrf
                     <button type="submit" class="btn btn-sm btn-outline-danger d-flex align-items-center gap-1 px-3 py-2 fw-medium" style="border-radius: 50px;">

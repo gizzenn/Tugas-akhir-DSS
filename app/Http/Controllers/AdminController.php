@@ -15,7 +15,7 @@ class AdminController extends Controller
         $this->fuzzy = $fuzzy; 
     }
     
-    // 1. FUNGSI UTAMA UNTUK MENAMPILKAN DASHBOARD & DATA PASIEN (WAJIB ADA)
+    // 1. FUNGSI UTAMA UNTUK MENAMPILKAN DASHBOARD & DATA PASIEN 
     public function index() 
     {
         // Memanggil semua data pasien, diurutkan dari yang terbaru
