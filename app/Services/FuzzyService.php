@@ -4,6 +4,7 @@ namespace App\Services;
 
 class FuzzyService 
 {
+    
     // ==========================================
     // 1. FUZZIFIKASI PENDAPATAN PASIEN (BAB 2.1)
     // ==========================================
